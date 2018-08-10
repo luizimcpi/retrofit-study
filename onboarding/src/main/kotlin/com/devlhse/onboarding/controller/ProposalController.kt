@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("proposal")
 open class ProposalController (val proposalService: ProposalService) {
 
-    @PostMapping(path = ["/"], consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PostMapping(consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
     open fun createProposal(@RequestBody proposal: Proposal): ResponseEntity<Any> {
         val proposalResponse = proposalService.saveProposal(proposal)
         return ResponseEntity.status(HttpStatus.CREATED).body(proposalResponse)
     }
 
-    @GetMapping(path = ["/{id}"], consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
+    @GetMapping(path = ["/{id}"])
     open fun getProposal(@PathVariable id: String): ResponseEntity<Any> {
         println("CLIENT IS CALLING THIS ENDPOINT...")
         val proposalResponse = proposalService.findProposalById(id)

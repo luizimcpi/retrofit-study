@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ONBOARDING-CLIENT-APP
+server:
+  port: 8001

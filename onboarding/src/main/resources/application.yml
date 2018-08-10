@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: ONBOARDING-APP
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/onboarding
+server:
+  port: 8002
